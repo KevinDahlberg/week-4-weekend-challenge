@@ -1,14 +1,12 @@
 $(function(){
   init();
+
 });// end document ready
 
 function init(){
   eventListeners(true);
   getRental();
-  $('#addItem').on('submit', function(event){
-    event.preventDefault();
-    addItem();
-  });
+
 }
 
 //Event Listeners
@@ -17,7 +15,7 @@ function eventListeners (value){
     $("#nav").on('click', '#rentalNav', showRentals);
     $("#nav").on('click', '#saleNav', showSales);
     $('#nav').on('click', "#showAll", showAll);
-
+    $('#formItem').on('submit', addItem);
   } else {
     $("#nav").off('click', '#rentalNav', showRentals);
     $("#nav").off('click', '#saleNav', showSales);
@@ -85,8 +83,9 @@ function showAll () {
 
 //add item
 function addItem(){
+  event.preventDefault();
   console.log('in add item path');
-  var newItem = {cost: $('#priceInput').val(), sqft: $('#sizeInput').val(), city: $('#locationInput').val};
+  var newItem = {cost: $('#priceInput').val(), sqft: $('#sizeInput').val(), city: $('#locationInput').val()};
   postItem(newItem);
 }
 //ajax calls
@@ -102,7 +101,7 @@ function getRental(){
 }
 
 function postItem(data){
-  console.log(data);
+  console.log("trying to post ", data);
   $.ajax({
     type: "POST",
     url: "/rental/newItem",

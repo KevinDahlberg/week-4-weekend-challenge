@@ -31,19 +31,20 @@ router.get("/", function(req,res){
 
 //POST statement
 router.post("/newItem", function(req,res){
-  console.log(req.body);
-//   // var item = new Rentals();
-//   // rentals.name = req.body.name;
-//   // employee.position = req.body.position;
-//   // employee.salary = req.body.salary;
-//   // employee.status = true;
-//   // employee.save(function(err, savedEmployee){
+  console.log(req.body.cost);
+  var rental = new Rentals();
+  rental.rent = req.body.cost;
+  rental.sqft = req.body.sqft;
+  rental.city = req.body.city;
+  console.log(rental.cost);
+  rental.save(function(err, savedRentals){
     if(err){
       console.log(err);
       res.sendStatus(500);
     }
 
-    res.sendStatus(200);
+    res.send(savedRentals);
   });
+});
 
 module.exports = router;
