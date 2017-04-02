@@ -6,6 +6,45 @@ function init(){
   getRental();
 }
 
+//append loop
+function appendRental (array){
+  console.log(array);
+  for (var i = 0; i < array.length; i++) {
+    var property = array[i];
+    propertyDivide(property);
+  }
+}
+
+//figures out whether a property is a rental or a sale
+function propertyDivide(data){
+  if (data.rent) {
+    appendRentalToDom(data);
+  } else if (data.cost){
+    appendSaleToDom(data);
+  } else {
+    console.log("no data to show");
+  }
+}
+
+//append rental to DOM
+function appendRentalToDom (rental){
+  $('#rentals').append('<div class="col-md-3 rentalContainer"><p>Rental Container</p></div>');
+  var $el = $("#rentals").children().last();
+  $el.append('<p>Price: '+rental.rent+'</p');
+  $el.append('<p>Size: '+rental.sqft+'</p');
+  $el.append('<p>Location: '+rental.city+'</p');
+}
+
+//append sale to DOM
+function appendSaleToDom (sale){
+  $('#sales').append('<div class="col-md-3 saleContainer"><p>Sale Container</p></div>');
+  var $el = $("#sales").children().last();
+  $el.append('<p>Price: '+sale.cost+'</p');
+  $el.append('<p>Size: '+sale.sqft+'</p');
+  $el.append('<p>Location: '+sale.city+'</p');
+}
+
+//ajax calls
 function getRental(){
   $.ajax({
     type: "GET",
@@ -26,39 +65,4 @@ function postItem(data){
       getRental();
     }
   });
-}
-
-function appendRental (array){
-  console.log(array);
-  for (var i = 0; i < array.length; i++) {
-    var property = array[i];
-    propertyDivide(property);
-  }
-}
-
-function propertyDivide(data){
-  if (data.rent) {
-    appendRentalToDom(data);
-  } else if (data.cost){
-    appendSaleToDom(data);
-  } else {
-    console.log("no data to show");
-  }
-}
-
-function appendRentalToDom (rental){
-  $('#rentals').append('<div class="rentalContainer"><p>Rental Container</p></div>');
-  var $el = $("#rentals").children().last();
-  $el.append('<p>'+rental.rent+'</p');
-  $el.append('<p>'+rental.sqft+'</p');
-  $el.append('<p>'+rental.city+'</p');
-}
-
-function appendSaleToDom (sale){
-  console.log(sale);
-  $('#rentals').append('<div class="saleContainer"><p>Sale Container</p></div>');
-  var $el = $("#rentals").children().last();
-  $el.append('<p>'+sale.cost+'</p');
-  $el.append('<p>'+sale.sqft+'</p');
-  $el.append('<p>'+sale.city+'</p');
 }
