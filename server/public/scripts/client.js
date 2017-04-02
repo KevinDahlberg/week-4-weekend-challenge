@@ -3,9 +3,23 @@ $(function(){
 });// end document ready
 
 function init(){
+  eventListeners(true);
   getRental();
 }
 
+//Event Listeners
+function eventListeners (value){
+  if (true){
+    $("#nav").on('click', '#rentalNav', showRentals);
+    $("#nav").on('click', '#saleNav', showSales);
+    $('#nav').on('click', '#addItem', addItem);
+    $('#nav').on('click', "#showAll", showAll);
+  } else {
+    $("#nav").off('click', '#rentalNav', showRentals);
+    $("#nav").off('click', '#saleNav', showSales);
+    $('#nav').off('click', '#addItem', addItem);
+  }
+}
 //append loop
 function appendRental (array){
   console.log(array);
@@ -44,6 +58,32 @@ function appendSaleToDom (sale){
   $el.append('<p>Location: '+sale.city+'</p');
 }
 
+//show rentals
+function showRentals (){
+  console.log('in show rental path');
+  $('.saleContainer').hide();
+  $('.rentalContainer').show();
+  //code to show rentals
+}
+
+//show sales
+function showSales (){
+  console.log('in show sales path');
+  $('.saleContainer').show();
+  $('.rentalContainer').hide();
+  //code to show just rentals
+}
+
+function showAll () {
+  $('.saleContainer').show();
+  $('.rentalContainer').show();
+}
+
+//add item
+function addItem(){
+  console.log('in add item path');
+  //code to add new item
+}
 //ajax calls
 function getRental(){
   $.ajax({
