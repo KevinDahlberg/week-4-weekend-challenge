@@ -16,7 +16,7 @@ var SaleSchema = mongoose.Schema({
   city : String
 });
 
-var Rentals = mongoose.model("Listings", RentalSchema, SaleSchema);
+var Rentals = mongoose.model("Listings", RentalSchema);
 
 //GET statement
 router.get("/", function(req,res){
@@ -32,19 +32,18 @@ router.get("/", function(req,res){
 //POST statement
 router.post("/newItem", function(req,res){
   console.log(req.body);
-  // var item = new Rentals();
-  // rentals.name = req.body.name;
-  // employee.position = req.body.position;
-  // employee.salary = req.body.salary;
-  // employee.status = true;
-  // employee.save(function(err, savedEmployee){
+//   // var item = new Rentals();
+//   // rentals.name = req.body.name;
+//   // employee.position = req.body.position;
+//   // employee.salary = req.body.salary;
+//   // employee.status = true;
+//   // employee.save(function(err, savedEmployee){
     if(err){
       console.log(err);
       res.sendStatus(500);
     }
 
-    res.send(savedRentals);
+    res.sendStatus(200);
   });
-})
 
 module.exports = router;
