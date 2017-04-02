@@ -36,7 +36,6 @@ router.post("/newItem", function(req,res){
   rental.rent = req.body.cost;
   rental.sqft = req.body.sqft;
   rental.city = req.body.city;
-  console.log(rental.cost);
   rental.save(function(err, savedRentals){
     if(err){
       console.log(err);

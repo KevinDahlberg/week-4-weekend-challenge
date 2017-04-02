@@ -85,6 +85,11 @@ function showAll () {
 function addItem(){
   event.preventDefault();
   console.log('in add item path');
+  if ($("#apt").val()){
+    console.log("Apt is true");
+  } else if ($("#prop").val()){
+    console.log("prop is true");
+  }
   var newItem = {cost: $('#priceInput').val(), sqft: $('#sizeInput').val(), city: $('#locationInput').val()};
   postItem(newItem);
 }
