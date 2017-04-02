@@ -27,8 +27,8 @@ Note that you will need to run this from the folder which you download the ‘li
     - [X] install provided data into a Mongo DB, using the different schemas
     - [X] Set up GET command that connects Client.js to app.js to database
     - [X] display information on DOM
-  [ ] Account for the different data ('rent' vs 'cost')
-    - [ ] logic to take information into account on client side
+  [x] Account for the different data ('rent' vs 'cost')
+    - [x] logic to take information into account on client side
   [ ] Use Bootstrap to display the data.
 
 Hard Mode
