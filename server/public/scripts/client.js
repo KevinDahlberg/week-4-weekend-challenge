@@ -76,6 +76,14 @@ function toggleModal() {
    $('#modal').modal('toggle');
 }
 
+//clear form
+function clearForm(){
+  $('#optionSelect').val('default').change();
+  $('#priceInput').val('');
+  $('#sizeInput').val('');
+  $('#locationInput').val('');
+}
+
 //figures out whether a property is a rental or a sale
 function propertyDefine(data){
   if (data.rent) {
@@ -93,12 +101,14 @@ function addItem(){
   if ($("#optionSelect").val()===$('#optionRent').val()){
     addRental();
     toggleModal();
+    clearForm();
   } else if ($("#optionSelect").val()===$('#optionSale').val()){
     addSale();
     toggleModal();
+    clearForm();
   } else {
     console.log('error adding item');
-    $(".alert").alert();
+    alert("Please Select Type of Posting");
   }
 }
 
