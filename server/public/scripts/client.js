@@ -22,66 +22,14 @@ function eventListeners (value){
   }
 }
 
-//append loop
+//Append to DOM functions
+//append loop for getRental
 function appendRental (array){
   console.log(array);
   for (var i = 0; i < array.length; i++) {
     var property = array[i];
     propertyDefine(property);
   }
-}
-
-//append rental to DOM
-function appendRentalToDom (rental){
-  $('#rentals').append('<div class="col-sm-3 rentalContainer"><p>Rental Container</p></div>');
-  var $el = $("#rentals").children().last();
-  $el.append('<p>Price: '+rental.rent+'</p');
-  $el.append('<p>Size: '+rental.sqft+'</p');
-  $el.append('<p>Location: '+rental.city+'</p');
-}
-
-//append sale to DOM
-function appendSaleToDom (sale){
-  $('#sales').append('<div class="col-sm-3 saleContainer"><p>Sale Container</p></div>');
-  var $el = $("#sales").children().last();
-  $el.append('<p>Price: '+sale.cost+'</p');
-  $el.append('<p>Size: '+sale.sqft+'</p');
-  $el.append('<p>Location: '+sale.city+'</p');
-}
-
-//show rentals
-function showRentals (){
-  console.log('in show rental path');
-  $('.saleContainer').hide();
-  $('.rentalContainer').show();
-  //code to show rentals
-}
-
-//show sales
-function showSales (){
-  console.log('in show sales path');
-  $('.saleContainer').show();
-  $('.rentalContainer').hide();
-  //code to show just rentals
-}
-
-//shows everybody
-function showAll () {
-  $('.saleContainer').show();
-  $('.rentalContainer').show();
-}
-
-//toggle modal
-function toggleModal() {
-   $('#modal').modal('toggle');
-}
-
-//clear form
-function clearForm(){
-  $('#optionSelect').val('default').change();
-  $('#priceInput').val('');
-  $('#sizeInput').val('');
-  $('#locationInput').val('');
 }
 
 //figures out whether a property is a rental or a sale
@@ -95,6 +43,25 @@ function propertyDefine(data){
   }
 }
 
+//append rental to DOM
+function appendRentalToDom (rental){
+  $('#rentals').append('<div class="col-sm-3 rentalContainer"><p>Property for Rent</p></div>');
+  var $el = $("#rentals").children().last();
+  $el.append('<p>Price: '+rental.rent+'</p');
+  $el.append('<p>Size: '+rental.sqft+'</p');
+  $el.append('<p>Location: '+rental.city+'</p');
+}
+
+//append sale to DOM
+function appendSaleToDom (sale){
+  $('#sales').append('<div class="col-sm-3 saleContainer"><p>Property for Sale</p></div>');
+  var $el = $("#sales").children().last();
+  $el.append('<p>Price: '+sale.cost+'</p');
+  $el.append('<p>Size: '+sale.sqft+'</p');
+  $el.append('<p>Location: '+sale.city+'</p');
+}
+
+//functions for adding an item to the DB
 //add item
 function addItem(){
   event.preventDefault();
@@ -124,6 +91,49 @@ function addSale () {
   postItem(saleItem);
 }
 
+//functions that show and hide the different types of property
+//show rentals
+function showRentals (){
+  console.log('in show rental path');
+  $('.saleContainer').hide("slide", { direction: "right" }, 1000);
+  $('.rentalContainer').hide().delay(1000).show("slide", {direction: "left"}, 1000);
+}
+
+//show sales
+function showSales (){
+  console.log('in show sales path');
+  $('.rentalContainer').hide("slide", { direction: "right" }, 1000);
+  $('.saleContainer').hide().delay(1000).show("slide", {direction: "left"}, 1000);
+  //code to show just rentals
+}
+
+//shows everybody
+function showAll () {
+  $('.saleContainer').fadeOut("slow").show("drop");
+  $('.rentalContainer').fadeOut("slow").show("drop");
+}
+
+//hides everybody
+function hideAll(){
+  $('.saleContainer').hide();
+  $('.rentalContainer').hide();
+}
+
+//functions dealing with the modal
+//toggle modal
+function toggleModal() {
+   $('#modal').modal('toggle');
+}
+
+//clear form
+function clearForm(){
+  $('#optionSelect').val('default').change();
+  $('#priceInput').val('');
+  $('#sizeInput').val('');
+  $('#locationInput').val('');
+}
+
+
 //ajax calls
 function getRental(){
   $.ajax({
@@ -132,6 +142,7 @@ function getRental(){
     success: function(response){
       appendRental(response);
       console.log(response);
+      hideAll();
     }
   });
 }
