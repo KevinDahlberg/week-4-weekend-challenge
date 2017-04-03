@@ -4,11 +4,11 @@ var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
 var rental = require('./routes/rental.js');
-var port = 4000;
+var port = ((process.env.PORT) || 4000);
 
 //Database Variables
 var mongoose = require("mongoose");
-var mongoURI = "mongodb://localhost:27017/realestate";
+var mongoURI = "mongodb://kevindahlberg:12345@ds147480.mlab.com:47480/dabombdb";
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 //If there is an error connecting to the database, let us know!

@@ -96,14 +96,14 @@ function addSale () {
 function showRentals (){
   console.log('in show rental path');
   $('.saleContainer').hide("slide", { direction: "right" }, 1000);
-  $('.rentalContainer').hide().delay(1000).show("slide", {direction: "left"}, 1000);
+  $('.rentalContainer').hide().delay(500).show("slide", {direction: "left"}, 1000);
 }
 
 //show sales
 function showSales (){
   console.log('in show sales path');
   $('.rentalContainer').hide("slide", { direction: "right" }, 1000);
-  $('.saleContainer').hide().delay(1000).show("slide", {direction: "left"}, 1000);
+  $('.saleContainer').hide().delay(500).show("slide", {direction: "left"}, 1000);
   //code to show just rentals
 }
 
