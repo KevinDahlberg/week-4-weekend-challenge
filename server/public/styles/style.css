@@ -1,16 +1,21 @@
 .rentalContainer, .saleContainer {
   border: 3px solid red;
+  margin: auto;
+  padding: 10px;
   margin: 10px;
 }
 
 .container-fluid {
   z-index: -1;
+  margin: 60px 10px 10px 10px;
 }
 
 #nav {
   position: fixed;
   width: 100%;
   z-index: 10;
+  height: 30px;
+  top: 0;
 }
 ul {
   list-style-type: none;

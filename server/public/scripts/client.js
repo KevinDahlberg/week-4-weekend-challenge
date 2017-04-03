@@ -33,7 +33,7 @@ function appendRental (array){
 
 //append rental to DOM
 function appendRentalToDom (rental){
-  $('#rentals').append('<div class="col-md-3 rentalContainer"><p>Rental Container</p></div>');
+  $('#rentals').append('<div class="col-sm-3 rentalContainer"><p>Rental Container</p></div>');
   var $el = $("#rentals").children().last();
   $el.append('<p>Price: '+rental.rent+'</p');
   $el.append('<p>Size: '+rental.sqft+'</p');
@@ -42,7 +42,7 @@ function appendRentalToDom (rental){
 
 //append sale to DOM
 function appendSaleToDom (sale){
-  $('#sales').append('<div class="col-md-3 saleContainer"><p>Sale Container</p></div>');
+  $('#sales').append('<div class="col-sm-3 saleContainer"><p>Sale Container</p></div>');
   var $el = $("#sales").children().last();
   $el.append('<p>Price: '+sale.cost+'</p');
   $el.append('<p>Size: '+sale.sqft+'</p');
