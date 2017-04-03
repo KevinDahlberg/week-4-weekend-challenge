@@ -24,13 +24,13 @@ Project Requirements:
 
 **Tasks**
 1. Create Full Stack Application using the MEAN stack.
-  [X] MVP that pulls data from the database and displays it on the DOM
+  - [X] MVP that pulls data from the database and displays it on the DOM
     - [X] install provided data into a Mongo DB, using the different schemas
     - [X] Set up GET command that connects Client.js to app.js to database
     - [X] display information on DOM
-  [x] Account for the different data ('rent' vs 'cost')
+  - [x] Account for the different data ('rent' vs 'cost')
     - [x] logic to take information into account on client side
-  [x] Use Bootstrap to display the data.
+  - [x] Use Bootstrap to display the data.
 
 Hard Mode
 Create an interface for adding additional properties to the collection. You will need to give the user an option for either a Rent property or a Sale property. Check out this Stack Overflow for information on how to accomplish this: http://stackoverflow.com/questions/14453864/use-more-than-one-schema-per-collection-on-mongodb
