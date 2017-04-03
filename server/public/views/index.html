@@ -28,37 +28,41 @@
     <div class="modal fade bs-example-modal-lg" id="modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
       <div class="modal-content">
         <form id="formItem">
+          <h3>Add New Item</h3>
+          <div class="row form-group">
+            <div class="col-sm-12">
           <select class="form-control" id="optionSelect">
-            <option id='optionChoose' value='default'>Choose One</option>
+            <option id='optionChoose' value='default'>Choose Listing Type</option>
             <option id='optionRent'>Apartment for Rent</option>
             <option id='optionSale'>Property for Sale</option>
-          </select>
+            </select>
+          </div>
+          </div>
 
-      <div class="form-group">
-        <label for="price" class="col-sm-2 control-label">Price</label>
-        <div class"col-sm-10">
-          <input type="text" class="form-control" id="priceInput" placeholder="Cost">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="size" class="col-sm-2 control-label">Size</label>
-        <div class"col-sm-10">
-          <input type="text" class="form-control" id="sizeInput" placeholder="Size in Square Feet">
-        </div>
-        <div class="form-group">
-          <label for="location">Location</label>
-          <input type="text" class="form-control" id="locationInput" placeholder="Location">
-        </div>
-        <button class="btn btn-default" id='itemSubmit'>Submit</button>
-      </div>
-    </form>
+          <div class="row form-group">
+            <label for="price" class="col-sm-4 control-label">Price</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="priceInput" placeholder="Enter Price in Dollars">
+            </div>
+          </div>
+          <div class="row form-group">
+            <label for="size" class="col-sm-4 control-label">Size</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="sizeInput" placeholder="Enter Size in Square Feet">
+            </div>
+          </div>
+          <div class="row form-group">
+            <label for="location" class="col-sm-4 control-label">Location</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="locationInput" placeholder="Enter Location">
+            </div>
+          </div>
+          <button class="btn btn-default" id='itemSubmit'>Submit</button>
 
-</div>
+        </form>
+      </div>
+  </div> <!-- end modal -->
 </div> <!-- end container -->
-<!-- <div class="alert alert-danger" role="alert">
-  <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
-</div> -->
-</div>
 
 
 <script type="text/javascript" src="vendors/bootstrap/js/bootstrap.js"></script>

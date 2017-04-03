@@ -3,6 +3,15 @@
   margin: 10px;
 }
 
+.container-fluid {
+  z-index: -1;
+}
+
+#nav {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
 ul {
   list-style-type: none;
   margin: 0;
@@ -26,4 +35,14 @@ li p {
 
 li p:hover {
     background-color: #111;
+}
+
+.modal {
+  width: 70%;
+  margin:0 auto;
+  padding:10%;
+}
+
+#formItem {
+  margin: 2% 5% 5% 5%;
 }
