@@ -6,7 +6,6 @@ $(function(){
 function init(){
   eventListeners(true);
   getRental();
-
 }
 
 //Event Listeners
@@ -22,23 +21,13 @@ function eventListeners (value){
     $('#nav').off('click', '#addItem', addItem);
   }
 }
+
 //append loop
 function appendRental (array){
   console.log(array);
   for (var i = 0; i < array.length; i++) {
     var property = array[i];
-    propertyDivide(property);
-  }
-}
-
-//figures out whether a property is a rental or a sale
-function propertyDivide(data){
-  if (data.rent) {
-    appendRentalToDom(data);
-  } else if (data.cost){
-    appendSaleToDom(data);
-  } else {
-    console.log("no data to show");
+    propertyDefine(property);
   }
 }
 
@@ -76,23 +65,55 @@ function showSales (){
   //code to show just rentals
 }
 
+//shows everybody
 function showAll () {
   $('.saleContainer').show();
   $('.rentalContainer').show();
 }
 
+//toggle modal
+function toggleModal() {
+   $('#modal').modal('toggle');
+}
+
+//figures out whether a property is a rental or a sale
+function propertyDefine(data){
+  if (data.rent) {
+    appendRentalToDom(data);
+  } else if (data.cost){
+    appendSaleToDom(data);
+  } else {
+    console.log("no data to show");
+  }
+}
+
 //add item
 function addItem(){
   event.preventDefault();
-  console.log('in add item path');
-  if ($("#apt").val()){
-    console.log("Apt is true");
-  } else if ($("#prop").val()){
-    console.log("prop is true");
+  if ($("#optionSelect").val()===$('#optionRent').val()){
+    addRental();
+    toggleModal();
+  } else if ($("#optionSelect").val()===$('#optionSale').val()){
+    addSale();
+    toggleModal();
+  } else {
+    console.log('error adding item');
+    $(".alert").alert();
   }
-  var newItem = {cost: $('#priceInput').val(), sqft: $('#sizeInput').val(), city: $('#locationInput').val()};
-  postItem(newItem);
 }
+
+//add rental unit
+function addRental(){
+  var rentalItem = {rent: $('#priceInput').val(), sqft: $('#sizeInput').val(), city: $('#locationInput').val()};
+  postItem(rentalItem);
+}
+
+//add property for sale
+function addSale () {
+  var saleItem = {cost: $('#priceInput').val(), sqft: $('#sizeInput').val(), city: $('#locationInput').val()};
+  postItem(saleItem);
+}
+
 //ajax calls
 function getRental(){
   $.ajax({
