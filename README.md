@@ -36,8 +36,8 @@ Hard Mode
 Create an interface for adding additional properties to the collection. You will need to give the user an option for either a Rent property or a Sale property. Check out this Stack Overflow for information on how to accomplish this: http://stackoverflow.com/questions/14453864/use-more-than-one-schema-per-collection-on-mongodb
 
 2. Create interface for adding additional properties
-  [x] POST command from Front to Back end
-  [x] Edit options on the DOM
+  - [x] POST command from Front to Back end
+  - [x] Edit options on the DOM
 
 Pro Mode
 Host the application on Heroku and mLabs. You will need to transfer the data up to mLabs. In will need to research to accomplish this.
